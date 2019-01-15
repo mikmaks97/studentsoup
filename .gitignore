@@ -1,2 +1,5 @@
 node_modules/
 ngrok
+static/whiteboard
+templates/chat
+templates/whiteboard

@@ -10,7 +10,7 @@ app.set('views', 'templates')
 app.set('view engine', 'pug')
 
 // routes
-app.get('/', (request, response) => response.render('whiteboard', {title: 'Study Group'}))
+app.get('/', (request, response) => response.render('whiteboard/whiteboard', {title: 'Study Group'}))
 
 const onConnect = (conn) => {
   console.log('DRAWING')

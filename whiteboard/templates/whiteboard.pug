@@ -1,0 +1,9 @@
+extends base.pug
+block style
+  link(rel='stylesheet' type='text/css' href='css/whiteboard.css')
+
+block content
+  h1 Hello shtudents
+  canvas(id='whiteboard')
+  script(src='/socket.io/socket.io.js')
+  script(src='js/whiteboard.js')

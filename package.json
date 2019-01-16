@@ -4,7 +4,7 @@
   "description": "Student soup web app",
   "main": "server.js",
   "scripts": {
-    "start": "./startserver.sh",
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Maxi n' Ruby",

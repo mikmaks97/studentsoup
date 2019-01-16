@@ -60,20 +60,29 @@
     mouseEvents[event.type]()
   }
 
-  canvas.addEventListener('mousedown', mouseEvent, false)
-  canvas.addEventListener('mouseup', mouseEvent, false)
-  canvas.addEventListener('mouseout', mouseEvent, false)
-  canvas.addEventListener('mousemove', mouseEvent, false)
+  function keyEvent(event) {
+    if (event.key == 'e'){
+      mouse.color = 'white'
+    } else if (event.key == 'd'){
+      mouse.color = 'black'
+    }
+  }
+  canvas.addEventListener('mousedown', mouseEvent)
+  canvas.addEventListener('mouseup', mouseEvent)
+  canvas.addEventListener('mouseout', mouseEvent)
+  canvas.addEventListener('mousemove', mouseEvent)
 
   //Touch support for mobile devices
-  canvas.addEventListener('touchstart', mouseEvent, false)
-  canvas.addEventListener('touchend', mouseEvent, false)
-  canvas.addEventListener('touchcancel', mouseEvent, false)
-  canvas.addEventListener('touchmove', mouseEvent, false)
+  canvas.addEventListener('touchstart', mouseEvent)
+  canvas.addEventListener('touchend', mouseEvent)
+  canvas.addEventListener('touchcancel', mouseEvent)
+  canvas.addEventListener('touchmove', mouseEvent)
+
+  document.addEventListener('keyup', keyEvent)
 
   socket.on('drawing', onDrawingEvent)
 
-  window.addEventListener('resize', onResize, false)
+  window.addEventListener('resize', onResize)
   onResize()
 
   function drawLine(x0, y0, x1, y1, color, emit){

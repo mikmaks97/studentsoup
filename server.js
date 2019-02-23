@@ -13,8 +13,10 @@ app.set('view engine', 'pug')
 app.get('/', (request, response) => response.render('whiteboard/whiteboard', {title: 'Study Group'}))
 
 const onConnect = (conn) => {
-  console.log('DRAWING')
-  conn.on('drawing', (data) => conn.broadcast.emit('drawing', data))
+  conn.on('drawing', (data) => {
+    console.log(data)
+    conn.broadcast.emit('drawing', data)
+  })
 }
 
 // socket stuff

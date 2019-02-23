@@ -1,8 +1,6 @@
 (function() {
   let socket = io()
   let canvas = document.getElementById('whiteboard')
-  canvas.width = 1024
-  canvas.height = 1024
   canvas.style.width = '100%'
   canvas.style.height = '100%'
 
@@ -81,8 +79,13 @@
   document.addEventListener('keyup', keyEvent)
 
   socket.on('drawing', onDrawingEvent)
-
-  window.addEventListener('resize', onResize)
+  
+  // make the canvas fill its parent
+  function onResize() {
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
+  }
+  window.addEventListener('resize', onResize, false)
   onResize()
 
   function drawLine(x0, y0, x1, y1, color, emit){
@@ -124,11 +127,5 @@
     let w = canvas.width
     let h = canvas.height
     drawLine(data.x0 * w, data.y0 * h, data.x1 * w, data.y1 * h, data.color)
-  }
-
-  // make the canvas fill its parent
-  function onResize() {
-    canvas.width = window.innerWidth
-    canvas.height = window.innerHeight
   }
 })()

@@ -1,2 +1,0 @@
-# studentsoup
-Hi Kuka
